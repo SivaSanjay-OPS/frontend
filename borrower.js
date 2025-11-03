@@ -1,4 +1,4 @@
-// borrower.js
+
 import { currentUser, appState, saveCurrentUser } from './state.js';
 export function renderBorrower() {
   const container = document.createElement('div');
