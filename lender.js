@@ -1,5 +1,5 @@
+import { appState } from './state.js'; 
 
-import { appState } from './state.js';
 export function renderLender() {
   const container = document.createElement('div');
   container.className = 'container dashboard-lender';
@@ -23,6 +23,14 @@ export function renderLender() {
     </div>
     <h4>All Pending Loans</h4>
     <ul class="lender-list" id="pending-loans"></ul>
+    <h4>Policy for Accepted Loans</h4>
+    <div id="policy-lines" style="font-size:0.97rem;color:#324;">
+      <b>If a loan is accepted:</b><br>
+      &bull; Repayment within agreed terms<br>
+      &bull; Late fees apply after due date<br>
+      &bull; Data recorded for compliance<br>
+      &bull; Borrower may contact support for dispute resolution
+    </div>
   `;
   function renderLoans() {
     const list = container.querySelector('#pending-loans');
@@ -31,21 +39,44 @@ export function renderLender() {
     pendingLoans.forEach(loan => {
       const li = document.createElement('li');
       li.innerHTML = `
-        <b>${loan.username}</b><span> requested </span>
-        <b>$${loan.amount}</b> for <i>${loan.purpose}</i>
-        <button data-id="${loan.id}" style="float:right;">Approve</button>
+        <b>${loan.username}</b> requested <b>$${loan.amount}</b> for <i>${loan.purpose}</i>
+        <button data-action="approve" data-id="${loan.id}" style="float:right;margin-left:6px;">Approve</button>
+        <button data-action="reject" data-id="${loan.id}" style="float:right;">Reject</button>
       `;
       list.appendChild(li);
     });
-    list.querySelectorAll('button[data-id]').forEach(btn => {
+    
+    list.querySelectorAll('button[data-action="approve"]').forEach(btn => {
       btn.onclick = () => {
         const id = Number(btn.getAttribute('data-id'));
-        const updatedLoans = appState.loans.map(l => l.id === id ? {...l, status: 'Approved'} : l);
+        const updatedLoans = appState.loans.map(l => l.id === id
+          ? { ...l, status: 'Approved', rejectionReason: null }
+          : l
+        );
+        appState.setState({ loans: updatedLoans });
+        renderLoans();
+      };
+    });
+    
+    list.querySelectorAll('button[data-action="reject"]').forEach(btn => {
+      btn.onclick = () => {
+        const id = Number(btn.getAttribute('data-id'));
+        const reason = prompt('Please enter reason for rejection:');
+        if (!reason || reason.trim().length === 0) return alert('Rejection reason is required for audit.');
+        const updatedLoans = appState.loans.map(l => l.id === id
+          ? { ...l, status: 'Rejected', rejectionReason: reason }
+          : l
+        );
         appState.setState({ loans: updatedLoans });
         renderLoans();
       };
     });
   }
+  renderLoans();
+  appState.subscribe(() => renderLoans());
+  return container;
+}
+
   renderLoans();
   appState.subscribe(() => renderLoans());
   return container;
