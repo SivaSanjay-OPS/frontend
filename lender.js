@@ -1,4 +1,4 @@
-// lender.js
+
 import { appState } from './state.js';
 export function renderLender() {
   const container = document.createElement('div');
