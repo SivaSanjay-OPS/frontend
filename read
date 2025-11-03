@@ -1,0 +1,29 @@
+Loan Agent System
+A modular, professional loan management frontend built for scalability, clarity, and modern enterprise needs.
+
+Overview
+Loan Agent System is a responsive, multi-role solution for tracking, requesting, approving, and analyzing loans in a business or institutional setting.
+
+Designed in pure HTML, CSS, and JavaScript, the project is highly maintainable and ready to plug into any backend or cloud provider.
+
+Features
+Role-Based Dashboards:
+Separate interfaces for Borrower, Lender, and Admin with workflow-specific tools.
+
+Modern Authentication:
+Secure login and signup experience.
+
+Dynamic Loan Management:
+Submit loan requests, approve loans, track repayments, view histories.
+
+Live Statistics:
+Admin dashboard shows user/loan metrics and recent activities.
+
+Advanced UI/UX:
+Mobile-ready, background branding, animated cursor, floating tips.
+
+Extensible Architecture:
+Each module/component in its own file for easy upgrades.
+
+Local Demo (Production-Ready Structure):
+State managed in browser for demo; easily connect to a backend as needed.
