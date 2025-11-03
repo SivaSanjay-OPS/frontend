@@ -1,4 +1,4 @@
-// state.js
+
 export const users = JSON.parse(localStorage.getItem('loan_app_users')) || [
   { username: "demo", password: "demo", role: "borrower", paid: 0 }
 ];
