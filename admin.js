@@ -1,4 +1,4 @@
-// admin.js
+
 import { appState, users } from './state.js';
 export function renderAdmin() {
   const container = document.createElement('div');
