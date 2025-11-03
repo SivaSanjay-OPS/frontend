@@ -1,0 +1,21 @@
+// state.js
+
+export const users = JSON.parse(localStorage.getItem('loan_app_users')) || [
+  { username: "demo", password: "demo", role: "borrower", paid: 0 }
+];
+export let currentUser = JSON.parse(localStorage.getItem('loan_app_current_user')) || null;
+
+export const appState = {
+  loans: JSON.parse(localStorage.getItem('loan_app_loans')) || [],
+  subscribers: [],
+  setState(newState) {
+    Object.assign(this, newState);
+    this.subscribers.forEach(cb => cb(this));
+    localStorage.setItem('loan_app_loans', JSON.stringify(this.loans));
+  },
+  subscribe(cb) { this.subscribers.push(cb); }
+};
+
+export function saveUsers() { localStorage.setItem('loan_app_users', JSON.stringify(users)); }
+export function saveCurrentUser(user) { localStorage.setItem('loan_app_current_user', JSON.stringify(user)); }
+export function setCurrentUser(user) { currentUser = user; saveCurrentUser(user); }

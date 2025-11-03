@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #e0e7ff url('https://images.unsplash.com/photo-1515165562835-c094cfc0b3c1?w=1400&q=80') no-repeat center top / cover;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  position: relative;
+}
+.auth-bg { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: rgba(30,58,138,0.88) url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1400&q=80') no-repeat center center / cover; }
+.auth-card { background: rgba(255,255,255,.98); padding: 2rem 2.5rem 2.5rem 2.5rem; border-radius: 1.5rem; box-shadow: 0 8px 30px rgba(30,64,175,0.23); max-width: 340px; width: 100%; text-align: center; }
+.auth-card h2 { color: #2563eb; }
+.auth-card input, .auth-card button { width: 100%; margin: 0.6rem 0; padding: .7rem 1rem; border-radius: .7rem; border: 1px solid #a5a5a5; font-size: 1.06rem; }
+.auth-card button { background: linear-gradient(90deg,#2563eb,#4f46e5); color: #fff; border: none; font-weight: 600; margin-top: 1rem; cursor: pointer; transition: background .2s;}
+.auth-card button:hover { background: linear-gradient(90deg,#4f46e5,#2563eb);}
+.auth-toggle { color: #2563eb; cursor: pointer; font-size: 1rem; margin: .8rem 0 0 0; display: block; }
+
+.navbar { display: flex; justify-content: center; align-items: center; background: linear-gradient(90deg,#f3f6fd 40%,#2563eb 150%); box-shadow: 0 4px 14px 0 rgba(40,60,100,0.11); padding: 1rem 0; margin-bottom: 1rem; }
+.navbar a { margin-right: 1.3rem; color: #1e293b; font-weight: 500; text-decoration: none; font-size: 1.07rem; border-radius: 1.2rem; padding: .7rem 1.3rem; transition: background 0.17s, color .17s; }
+.navbar a:last-child { margin-right: 0; }
+.navbar a.active, .navbar a:hover { background: #2563eb; color: #fff; }
+
+.container { max-width: 480px; margin: 3rem auto; background: rgba(255,255,255,0.87); padding: 2.3rem 2rem 2rem 2rem; border-radius: 1.4rem; box-shadow: 0 8px 32px 0 rgba(31,38,135,0.19); position: relative; animation: fadeIn .7s;}
+@keyframes fadeIn { from {opacity:0; transform:translateY(42px);} to {opacity:1; transform:translateY(0);} }
+h2 { color: #2563eb; letter-spacing:.4px; }
+h3 { margin: 1.2rem 0 .2rem 0; color:#3b82f6;}
+h4 { color:#0a101e; margin-top:.5rem }
+
+.dashboard-borrower { background: rgba(236,253,245,.93) url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=900&q=80') no-repeat right 18% bottom / auto 75%; }
+.dashboard-lender   { background: rgba(239,246,255,.93) url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&q=80') no-repeat left 17% top / auto 62%; }
+.dashboard-admin    { background: rgba(248,250,252,.95) url('https://images.unsplash.com/photo-1556742400-b5e29b38c8fc?w=900&q=80') no-repeat right top / auto 80%; }
+
+form input, form button { margin-bottom: .7rem; font-size: 1.08rem; }
+form button { font-weight: 600; }
+form label { display:block; text-align:left; margin-bottom:.2rem;color:#1e40af;}
+.dash-img { width: 100%; max-width: 330px; display: block; border-radius: 1.2rem; box-shadow: 0 4px 18px 0 rgba(37,99,235,0.11); margin: 0 auto 1.2rem auto; }
+.benefits, .offers, .test-data { margin-bottom: 1.15rem; background: #f3f6fd; border-radius: 1rem; padding: .65rem 1rem; box-shadow: 0 2px 10px 0 rgba(31,41,135,0.06);}
+.offers-table, .stats-table { width: 100%; border-collapse: collapse; background: #f5faff; border-radius: 1rem; overflow: hidden; font-size: 1rem; margin:0.5rem 0;}
+.offers-table th, .offers-table td, .stats-table th, .stats-table td { border-bottom: 1px solid #e0e7ff; padding: .7rem; text-align: left;}
+.offers-table th, .stats-table th { background: #e0e7ff; color: #1e40af; font-weight: 600;}
+.offers-table tr:last-child td, .stats-table tr:last-child td { border-bottom: none;}
+.lender-list, .borrower-list { background: #eef2ff; border-radius: .7rem; padding:.7rem; max-height: 160px; overflow-y:auto; margin-bottom:1.2rem;}
+.lender-list li, .borrower-list li { margin-bottom: .5rem; }
+#loanPaidInfo {margin-bottom:1.5rem;}
+
+.floating-tips { position: fixed; bottom: 2.5rem; right: 2.5rem; min-width: 250px; max-width: 320px; background: #e0e7ff; box-shadow: 0 3px 18px rgba(37,99,235,0.19); border-radius: 1.2rem; padding: 1rem 1.3rem; color: #1e40af; font-size: 1rem; z-index: 1003; opacity: .94; animation: fadeTips 1s;}
+@keyframes fadeTips { from {opacity: 0; transform: translateY(40px);} to { opacity: .94; transform: translateY(0);} }
+.floating-tips ul {margin:.5rem 0 0 0;}
+.floating-tips li { margin-bottom:.35rem; font-size:.98rem;}
+
+.cursor { width: 22px; height: 22px; border: 2px solid #6366f1; border-radius: 50%; position: fixed; pointer-events: none; transform: translate(-50%, -50%); transition: background-color 0.26s, transform 0.11s; z-index: 9999; }
+
